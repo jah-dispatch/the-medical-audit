@@ -1,0 +1,276 @@
+/* =========================================
+   1. VARIABLES (YOUR CONTROL PANEL)
+   ========================================= */
+:root {
+    /* Click the color squares in VS Code to tweak these! */
+    --color-orange: #d35400;      /* Main Action / Urgent Color */
+    --color-black: #050505;       /* Deep Space Background */
+    --color-charcoal: #1a1a1a;    /* Secondary Background / Menus */
+    --color-white: #f4f4f4;       /* Text Color (Slightly off-white for readability) */
+    
+    /* Fonts */
+    --font-main: 'Poppins', sans-serif;
+    --font-accent: 'Caveat', cursive;
+}
+
+/* =========================================
+   2. GLOBAL RESETS
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    overflow-x: hidden; /* Prevents horizontal scroll from menu */
+}
+
+/* =========================================
+   3. STICKY HEADER & NAVIGATION
+   ========================================= */
+#main-header {
+    position: sticky;
+    top: 0;
+    background-color: var(--color-black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    border-bottom: 2px solid var(--color-charcoal);
+}
+
+.logo h2 {
+    font-family: var(--font-main);
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+/* Desktop Nav */
+.desktop-nav a {
+    color: var(--color-white);
+    text-decoration: none;
+    margin: 0 1rem;
+    font-family: var(--font-accent);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.desktop-nav a:hover {
+    color: var(--color-orange);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    color: var(--color-white);
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--color-orange);
+}
+
+/* =========================================
+   4. THE "TIGER GROWL" MOBILE TRIGGER
+   ========================================= */
+#mobile-trigger {
+    display: none; /* Hidden on desktop */
+    background: var(--color-orange);
+    color: var(--color-white);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-main);
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* The Fierce Animation */
+@keyframes growl {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.growl-btn:hover {
+    animation: growl 0.3s infinite;
+}
+
+/* =========================================
+   5. MOBILE SLIDE-OUT MENU (RIGHT SIDE)
+   ========================================= */
+#mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hidden off-screen to the right */
+    width: 300px;
+    height: 100vh;
+    background-color: var(--color-charcoal);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.8);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Fast, fierce slide */
+}
+
+#mobile-menu.open {
+    right: 0; /* Slides into view */
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-orange);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+#close-menu {
+    background: none;
+    border: none;
+    color: var(--color-orange);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.mobile-nav-links a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-family: var(--font-accent);
+    font-size: 2rem;
+}
+
+.mobile-nav-links a:hover {
+    color: var(--color-orange);
+}
+
+.mobile-socials {
+    margin-top: auto;
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* =========================================
+   6. PARALLAX PANES
+   ========================================= */
+.parallax-pane {
+    min-height: 80vh; /* Tall enough, won't crop out entirely on mobile */
+    background-attachment: fixed; /* THIS creates the parallax effect */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 4px solid var(--color-orange);
+}
+
+/* Placeholders for your background images */
+.about-bg { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/images/about.png'); }
+.mission-bg { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/images/mission.png'); }
+.audits-bg { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/images/audits.png'); }
+.submit-bg { background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('assets/images/submit.png'); }
+
+.overlay-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 2rem;
+    background: rgba(26, 26, 26, 0.85); /* Charcoal with opacity */
+    border: 1px solid var(--color-orange);
+}
+
+.accent-title {
+    font-family: var(--font-accent);
+    font-size: 4rem;
+    color: var(--color-orange);
+    margin-bottom: 1rem;
+}
+
+.overlay-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.action-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #b04400; /* Darker orange on hover */
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+footer {
+    background-color: var(--color-black);
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.grayscale-logo {
+    color: #555; /* Cinematic Grayscale */
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* =========================================
+   8. MOBILE RESPONSIVENESS MEDIA QUERIES
+   ========================================= */
+@media (max-width: 850px) {
+    .desktop-nav {
+        display: none; /* Hide standard links on small screens */
+    }
+    #mobile-trigger {
+        display: inline-block; /* Show the Growl Button */
+    }
+    .parallax-pane {
+        background-attachment: scroll; /* Fixes iOS parallax jumping issues */
+        min-height: 60vh;
+    }
+    .accent-title {
+        font-size: 3rem;
+    }
+}

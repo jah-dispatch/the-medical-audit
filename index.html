@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE MEDICAL AUDIT</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="main-style.css">
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="logo">
+            <h2>THE MEDICAL AUDIT</h2>
+        </div>
+        
+        <nav class="desktop-nav">
+            <a href="#about">About</a>
+            <a href="#mission">Mission</a>
+            <a href="#audits">The Audits</a>
+            <a href="#submit" class="accent-link">Submit an Audit</a>
+        </nav>
+
+        <div class="header-right">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <button id="mobile-trigger" class="growl-btn">
+                <i class="fas fa-bars"></i> MENU
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu">
+        <div class="menu-header">
+            <h3>Navigation</h3>
+            <button id="close-menu"><i class="fas fa-times"></i></button>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="#about">About</a>
+            <a href="#mission">Mission</a>
+            <a href="#audits">The Audits</a>
+            <a href="#submit" class="accent-link">Submit an Audit</a>
+            <a href="#">Extra Page 1</a>
+            <a href="#">Extra Page 2</a>
+        </nav>
+        <div class="mobile-socials">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <main>
+        <section id="about" class="parallax-pane about-bg">
+            <div class="overlay-content">
+                <h1 class="accent-title">Investigating the System</h1>
+                <p>We are looking deep beneath the surface to uncover why the medical system operates without humanity.</p>
+                <a href="#mission" class="action-btn">Read Our Mission</a>
+            </div>
+        </section>
+
+        <section id="mission" class="parallax-pane mission-bg">
+            <div class="overlay-content">
+                <h1 class="accent-title">Our Mission</h1>
+                <p>Amplifying public voices. Documenting chicanery. Demanding accountability across local and national networks.</p>
+                <a href="#audits" class="action-btn">View the Audits</a>
+            </div>
+        </section>
+
+        <section id="audits" class="parallax-pane audits-bg">
+            <div class="overlay-content">
+                <h1 class="accent-title">The Public Record</h1>
+                <p>Access the black box. Read the unfiltered, documented failures of the healthcare system.</p>
+                <a href="#" class="action-btn">Browse Case Files</a>
+            </div>
+        </section>
+
+        <section id="submit" class="parallax-pane submit-bg">
+            <div class="overlay-content form-placeholder">
+                <h1 class="accent-title">Submit Your Audit</h1>
+                <p>Your silence protects them. Your voice exposes them. Submit your medical affidavit securely.</p>
+                <a href="#" class="action-btn form-btn">Open Secure Form</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <h2 class="grayscale-logo">THE MEDICAL AUDIT</h2>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p>&copy; 2026 THE MEDICAL AUDIT. All voices reserved.</p>
+    </footer>
+
+    <script>
+        const triggerBtn = document.getElementById('mobile-trigger');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Slide IN from the right
+        triggerBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+
+        // Slide OUT to the right
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+    </script>
+</body>
+</html>
