@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Archives | THE MEDICAL AUDIT</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../main-style.css">
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="logo">
+            <h2><a href="../index.html" style="color: inherit; text-decoration: none;">THE MEDICAL AUDIT</a></h2>
+        </div>
+        
+        <nav class="desktop-nav">
+            <a href="../about.html">About</a>
+            <a href="../mission.html">Mission</a>
+            <a href="audit-index.html">The Audits</a>
+            <a href="../submission.html" class="accent-link">Submit an Audit</a>
+        </nav>
+
+        <div class="header-right">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <button id="mobile-trigger" class="growl-btn">
+                <i class="fas fa-bars"></i> MENU
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu">
+        <div class="menu-header">
+            <h3>Navigation</h3>
+            <button id="close-menu"><i class="fas fa-times"></i></button>
+        </div>
+        <nav class="mobile-nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../about.html">About</a>
+            <a href="../mission.html">Mission</a>
+            <a href="audit-index.html">The Audits</a>
+            <a href="../submission.html" class="accent-link">Submit an Audit</a>
+        </nav>
+        <div class="mobile-socials">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <main class="page-container" style="max-width: 1200px;">
+        
+        <button id="drawer-toggle" class="drawer-btn">
+            <i class="fas fa-folder-open"></i> Toggle Archive Drawer
+        </button>
+
+        <div class="audit-workspace">
+            <aside id="filing-cabinet" class="filing-cabinet closed">
+                <h3 class="cabinet-title">Archives</h3>
+                
+                <div class="archive-year">2026</div>
+                <ul class="archive-list">
+                    <li><a href="2026/FEB/case-001.html">FEB - Case #001: Denials</a></li>
+                    <li><a href="#">FEB - Case #002: Pending</a></li>
+                </ul>
+
+                <div class="archive-year">2025</div>
+                <ul class="archive-list">
+                    <li><a href="#">Historical Data Import</a></li>
+                </ul>
+            </aside>
+
+            <section class="audit-content">
+                <div class="dossier-folder">
+                    <h1 style="border-bottom: 2px solid #1a1a1a; padding-bottom: 10px; margin-bottom: 20px; font-family: var(--font-main); font-weight: 900;">THE PUBLIC RECORD</h1>
+                    <p style="color: var(--color-orange); font-family: var(--font-accent); font-size: 1.5rem;"><strong>STATUS:</strong> Awaiting File Selection.</p>
+                    <br>
+                    <p>Select a case file from the Archive Drawer to open the dossier. All submissions are verified to the best of our ability and redacted where necessary to protect patient anonymity.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <h2 class="grayscale-logo">THE MEDICAL AUDIT</h2>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p>&copy; 2026 THE MEDICAL AUDIT. All voices reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic
+        const triggerBtn = document.getElementById('mobile-trigger');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        triggerBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+
+        // Filing Cabinet Logic
+        const drawerToggle = document.getElementById('drawer-toggle');
+        const filingCabinet = document.getElementById('filing-cabinet');
+
+        drawerToggle.addEventListener('click', () => {
+            filingCabinet.classList.toggle('closed');
+            
+            // Swap the icon for extra flair
+            const icon = drawerToggle.querySelector('i');
+            if(filingCabinet.classList.contains('closed')) {
+                icon.className = 'fas fa-folder';
+            } else {
+                icon.className = 'fas fa-folder-open';
+            }
+        });
+    </script>
+</body>
+</html>
